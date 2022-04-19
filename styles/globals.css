@@ -35,12 +35,12 @@ main{
 }
 h1{
    font-size: 72px;
-   font-weight: 700;
+   font-weight: 700 !important;
 }
 h2{
-   font-size: 42px;
+   font-size: 38px;
    letter-spacing: 2px;
-   font-weight: 700;
+   font-weight: 700 !important;
 }
 h4{
    font-size: 18px;
