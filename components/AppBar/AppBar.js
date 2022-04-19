@@ -45,7 +45,7 @@ const AppBar = () => {
               width="45px"
               className="object-contain md:scale-125"
             />
-            <span className="ml-1 text-2xl flex flex-row font-semibold">
+            <span className="ml-1 text-1xl flex flex-row font-bold lg:font-semibold">
               Mars <div className="text-[#2563EB]">Porfolio</div>
             </span>
           </a>
