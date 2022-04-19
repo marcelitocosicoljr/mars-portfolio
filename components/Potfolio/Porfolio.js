@@ -9,7 +9,7 @@ const Porfolio = () => {
   return (
     <div className="container relative flex flex-col items-center justify-center py-10">
       <h4 className="uppercase">PORtFOLIO</h4>
-      <h2 className="font-semibold text-center items-center text-[#292983]">All Creative Works</h2>
+      <h2 className=" font-bold sm:font-semibold text-center px-10 sm:0 items-center text-[#292983]">All Creative Works</h2>
       <div className="relative flex w-full flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-evenly lg:justify-between py-5">
         {projectItems.map((project, idx) => (
           <div
