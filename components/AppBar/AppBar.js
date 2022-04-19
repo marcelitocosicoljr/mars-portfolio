@@ -41,11 +41,11 @@ const AppBar = () => {
           >
             <Image
               src={Logo}
-              height="40px"
+              height="45px"
               width="45px"
               className="object-contain md:scale-125"
             />
-            <span className="ml-1 flex flex-row">
+            <span className="ml-1 text-2xl flex flex-row font-semibold">
               Mars <div className="text-[#2563EB]">Porfolio</div>
             </span>
           </a>
@@ -80,7 +80,7 @@ const AppBar = () => {
           </Link>
           <HiOutlineMenuAlt3
             onClick={toggle}
-            className="text-2xl text-[#2D62CF] duration-500 ease-out hover:text-[#457ff3] lg:hidden lg:text-2xl lg:hover:scale-125"
+            className="text-3xl text-[#2D62CF] duration-500 ease-out hover:text-[#457ff3]  lg:hidden lg:text-2xl lg:hover:scale-125"
           />
         </div>
       </div>

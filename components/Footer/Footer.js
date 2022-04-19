@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="relative h-16 w-16 ">
             <Image src={Logo} layout="fill" objectFit="fill" className="" />
           </div>
-          <h3 className="text-xl text-white ">MarsPorfolio</h3>
+          <h3 className="text-xl text-white font-semibold">MarsPorfolio</h3>
         </div>
       </Link>
       <span className="flex flex-row items-center gap-4 py-4">
