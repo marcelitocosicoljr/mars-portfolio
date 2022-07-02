@@ -19,7 +19,7 @@ const Mathead = () => {
                     A passionate simple person in making web/mobile applications using most useful tech stacks that 
                     will be fit to the clients wanted output. Experienced in making website and mobile app using HTML, 
                     CSS, JAVASCRIPT,AJAX, PHP, WORDPRESS, REACT, NEXTJS, NODEJS, LARAVEL, TAILWINDCSS and MUI for website 
-                    development and REACT NATIVE for mobile app development and experienced using MYSQL, MONGODB and FIREBASE.
+                    development and REACT NATIVE & FLUTTER for mobile app development and experienced using MYSQL, MONGODB and FIREBASE.
                 </p>
             </div>
         </div>
