@@ -8,7 +8,7 @@ import * as S from '../Global.styled'
 
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-col items-center   justify-center bg-[#292983] pt-5 pb-7">
+    <footer className="flex w-full flex-col items-center   justify-center bg-[#21211E] pt-5 pb-7">
       <Link href="#">
         <div className="flex flex-row items-center gap-2">
           <div className="relative h-16 w-16 ">
@@ -29,7 +29,7 @@ const Footer = () => {
           </a>
         </Link>
       </span>
-      <div className="flex flex-col items-center sm:flex-row sm:py-2 ">
+      <div className="flex flex-col items-center sm:flex-row sm:py-2 hidden">
         <Link href="#">
           <S.NavLink href="facebook.com" className="my-0 text-xs text-white">
             Home

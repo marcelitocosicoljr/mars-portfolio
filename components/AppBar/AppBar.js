@@ -50,7 +50,7 @@ const AppBar = () => {
             </span>
           </a>
         </Link>
-        <div className="-ml-10 hidden lg:block">
+        <div className="-ml-10 hidden lg:hidden ">
           <Link href="#">
             <S.NavLink href="facebook.com">Home</S.NavLink>
           </Link>
