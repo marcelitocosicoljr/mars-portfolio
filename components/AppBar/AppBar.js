@@ -7,6 +7,7 @@ import { FiMail } from 'react-icons/fi'
 import * as S from '../Global.styled'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import { MdClose } from 'react-icons/md'
+import { FaLinkedin } from "react-icons/fa";
 
 import ToggleMenu from '../../hooks/ToggleMenu'
 
@@ -29,7 +30,7 @@ const AppBar = () => {
       <div
         className={`fixed top-0 left-0 z-50   flex w-full  flex-row items-center justify-between px-5   py-5 pl-4 sm:px-10 lg:px-20  ${
           animateHeader &&
-          'duration-400 bg-white py-2.5 shadow-md transition ease-in'
+          'duration-400 bg-[#0F152E] py-2.5 shadow-md transition ease-in'
         }`}
       >
         <Link href="#">
@@ -39,89 +40,31 @@ const AppBar = () => {
               'bg-transparent py-0 px-0 transition duration-300 ease-in '
             }  py-2 px-0`}
           >
-            <Image
+            {/* <Image
               src={Logo}
               height="45px"
               width="45px"
               className="object-contain md:scale-125"
-            />
-            <span className="ml-1 text-1xl flex flex-row font-bold lg:font-semibold">
-              Mars <div className="text-[#2563EB]">Porfolio</div>
+            /> */}
+            <span className="ml-1 text-2xl sm:text-2xl flex flex-row font-bold lg:font-semibold text-white ">
+            Marcelito's <span className='text-[#2676C0] ml-2'> Portfolio {">"} </span> {">"}
             </span>
           </a>
         </Link>
-        <div className="-ml-10 hidden lg:hidden ">
-          <Link href="#">
-            <S.NavLink href="facebook.com">Home</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>About</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>Projects</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>Gallery</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>Contact</S.NavLink>
-          </Link>
-        </div>
-        <div className="flex flex-row gap-5">
-          <Link href="#">
-            <a href="https://www.facebook.com/marcelito.cos" target="_black">
-              <BsFacebook className="hidden text-2xl  text-[#2D62CF] duration-500 ease-out hover:scale-125 hover:text-[#457ff3] lg:block" />
-            </a>
-          </Link>
-          <Link href="#">
-            <a href="mailto:mcosicoljr@gmail.com" target="_black">
-              <FiMail className="hidden text-2xl text-[#2D62CF] duration-500 ease-out hover:scale-125 hover:text-[#457ff3] lg:block" />
-            </a>
-          </Link>
-          <HiOutlineMenuAlt3
-            onClick={toggle}
-            className="text-3xl text-[#2D62CF] duration-500 ease-out hover:text-[#457ff3]  lg:hidden lg:text-2xl lg:hover:scale-125"
-          />
-        </div>
-      </div>
-      <div className="">
-        <div
-          className={`dropdown_con fixed right-0 z-50 -mt-5 -mr-1 flex w-8/12 flex-col rounded-md bg-white px-3 pt-8 pb-10 opacity-0 shadow-lg sm:-mr-2 sm:w-1/3 sm:px-3  lg:hidden   ${
-            isOpen ? 'toggle ' : 'duration-300'
-          } `}
-        >
-          <MdClose
-            onClick={toggle}
-            className="ml-3 text-2xl text-[#2D62CF]  duration-500 ease-out hover:text-[#457ff3] lg:hidden lg:text-2xl lg:hover:scale-125"
-          />
-          <Link href="#">
-            <S.NavLink href="facebook.com">Home</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>About</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>Projects</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>Gallery</S.NavLink>
-          </Link>
-          <Link href="#">
-            <S.NavLink>Contact</S.NavLink>
-          </Link>
-          <span className="flex flex-row gap-4 px-4 pt-5">
-            <Link href="#">
-              <a href="https://www.facebook.com/marcelito.cos" target="_black">
-                <BsFacebook className="text-2xl  text-[#2D62CF]  duration-500 ease-out hover:scale-125 hover:text-[#457ff3]" />
-              </a>
-            </Link>
-            <Link href="#">
-              <a href="mailto:mcosicoljr@gmail.com" target="_black">
-                <FiMail className="text-2xl text-[#2D62CF] duration-500 ease-out hover:scale-125 hover:text-[#457ff3]" />
-              </a>
-            </Link>
-          </span>
-        </div>
+
+        <span className="hidden sm:flex flex-row items-center gap-4 py-4">
+
+          <a href="https://www.facebook.com/marcelito.cos" target="_black">
+            <BsFacebook className="text-2xl  text-[#fff]  duration-500 ease-out hover:scale-125 hover:text-[#EAF0FD]" />
+          </a>
+          <a href="mailto:mcosicoljr@gmail.com" target="_black">
+            <FiMail className="text-2xl text-[#fff] duration-500 ease-out hover:scale-125 hover:text-[#EAF0FD]" />
+          </a>
+          <a href="https://www.linkedin.com/in/marcelito-cosicol-19288b22b/" target="_black">
+            <FaLinkedin className="text-2xl text-[#fff] duration-500 ease-out hover:scale-125 hover:text-[#EAF0FD]" />
+          </a>
+      </span>
+
       </div>
     </div>
   )

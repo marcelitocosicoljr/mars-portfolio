@@ -13,9 +13,10 @@ body {
       sans-serif; */
    min-height: 100vh;
    color: #333;
+   background-color: #0F152E;
 }
 main{
-   
+
 }
 .container{
    max-width: 1200px;
@@ -32,7 +33,7 @@ main{
    opacity: 1 ;
    transition: .4s;
    transform: translateX(0);
-   
+
 }
 h1{
    font-size: 72px;
@@ -49,7 +50,7 @@ h4{
    letter-spacing: 2px;
 }
 * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-@media (max-width: 299px) { 
+@media (max-width: 299px) {
    h1{
       font-size: 45px !important;
    }

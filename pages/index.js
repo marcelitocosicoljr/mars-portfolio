@@ -5,6 +5,8 @@ import AppBar from '../components/AppBar/AppBar'
 import Mathead from '../components/Masthead/Mathead'
 import Footer from '../components/Footer/Footer'
 import Porfolio from '../components/Potfolio/Porfolio'
+import TextImage from '../components/TextImage/TextImage'
+import TotalExperience from '../components/TotalExperience/TotalExperience'
 
 
 
@@ -21,7 +23,9 @@ const Home = () => {
           <AppBar/>
         </header>
         <Mathead/>
+        <TextImage/>
         <Porfolio/>
+        <TotalExperience/>
       </main>
 
       <Footer/>
