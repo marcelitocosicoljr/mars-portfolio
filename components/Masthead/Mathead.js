@@ -37,7 +37,7 @@ const Mathead = () => {
                 <p className='text-[#E6EFF8] text-[18px] mt-5 tracking-widest  sm:pb-10 opacity-100  lg:pb-0 '>
 
 
-                    Frontend Developer with more than 2 years of experience in designing and developing user interfaces, testing, debugging, and structuring
+                    Frontend Developer with more than 3 years of experience in designing and developing user interfaces, testing, debugging, and structuring
                     data management within web applications. Proven ability in optimizing web and mobile application functionalities that improve data
                     retrieval and workflow efficiencies.
 

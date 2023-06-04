@@ -17,7 +17,7 @@ const TotalExperience = () => {
                 <div class="flex-grow">
                     <h2 class="text-[#B6D1EA]text-lg title-font font-medium mb-3">Fronted Developer</h2>
                     <p class="leading-relaxed text-base">
-                    With over two years of experience as a frontend developer, I have gained valuable expertise and knowledge in creating engaging and responsive user interfaces.
+                    With over 3 years of experience as a frontend developer, I have gained valuable expertise and knowledge in creating engaging and responsive user interfaces.
                     </p>
 
                 </div>
@@ -33,7 +33,7 @@ const TotalExperience = () => {
                 <div class="flex-grow">
                 <h2 class="text-[#B6D1EA]text-lg title-font font-medium mb-3">UI/UX Designer</h2>
                     <p class="leading-relaxed text-base">
-                    With over 1 year of experience as a UI/UX Designer, I have gained valuable expertise and knowledge in designing engaging and user-friendly user interfaces.
+                    With over 2 years of experience as a UI/UX Designer, I have gained valuable expertise and knowledge in designing engaging and user-friendly user interfaces.
                     </p>
                 </div>
                 </div>
