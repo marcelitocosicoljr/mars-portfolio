@@ -6,7 +6,7 @@ const TextImage = () => {
 
         <section class="text-[#B6D1EA] body-font">
         <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-            <img class="rounded-full w-[200px] h-[200px] mb-10 object-cover object-center" alt="hero" src="../images/id.png"/>
+            <img class="rounded-full w-[200px] h-[200px] mb-10 object-cover object-center" alt="hero" src="../images/id2.jpg"/>
             <div class="text-center lg:w-2/3 w-full">
             <h1 class="title-font sm:text-4xl  text-3xl mb-4 font-medium text-[#E6EFF8]">Experienced Developer</h1>
             <p class="mb-8 leading-relaxed">

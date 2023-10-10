@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import * as S from '../Global.styled'
-import Mars from '../../public/images/mars.png'
+import Mars from '../../public/images/mars3.png'
 import BackgroundImage from '../../public/images/bg.png'
 
 const Mathead = () => {
@@ -23,13 +23,13 @@ const Mathead = () => {
 
 
             <div className='w-full sm:w-2/5 lg:w-1/2 container'  >
-                <div className='h-96 sm:full contain lg:h-screen  relative'>
-                    <Image src={Mars} layout='fill' objectFit='cover' className='cover' />
+                <div className='h-96 sm:full contain lg:h-[80vh]  relative opacity-[50%] '>
+                    <Image src={Mars} className='h-[40%] w-auto object-contain ' />
                 </div>
             </div>
             <div className='w-full  sm:mt-0  sm:w-3/5 lg:w-1/2 flex justify-center lg:h-screen items-start px-5 sm:px-0 sm:pr-12  pt-5 sm:pt-0 lg:pr-32 flex-col '>
                 <h1 className='font-bold tracking-wider leading-none max-w-full  text-6xl lg:text-8xl   text-[#2676C0] pt-5' >
-                    <span className='block font-bold text-5xl text-white'>Frontend</span> Developer
+                    <span className='block font-bold text-5xl text-white'>Software</span> Engineer
                 </h1>
                 <h1 className='font-bold tracking-wider leading-none max-w-full  text-6xl lg:text-8xl -mt-3  text-[#2676C0]' >
                     <span className='block font-bold text-5xl text-white'></span> {">"}<span className=' text-white'>{">"}</span>
@@ -37,9 +37,7 @@ const Mathead = () => {
                 <p className='text-[#E6EFF8] text-[18px] mt-5 tracking-widest  sm:pb-10 opacity-100  lg:pb-0 '>
 
 
-                    Frontend Developer with more than 3 years of experience in designing and developing user interfaces, testing, debugging, and structuring
-                    data management within web applications. Proven ability in optimizing web and mobile application functionalities that improve data
-                    retrieval and workflow efficiencies.
+                    A Software Engineer with over 3 years of experience specializing in designing and developing user interfaces, testing, debugging, and structuring data management within web applications. Demonstrated expertise in enhancing web and mobile application functionalities to optimize data retrieval and workflow efficiencies.
 
 
                 </p>
