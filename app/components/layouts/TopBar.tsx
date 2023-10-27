@@ -36,7 +36,7 @@ const TopBar = ({home,about,works,contact, scrollToComponent = ()=>{}}:any) => {
 
         <div className='w-[45px] h-[45px]  overflow-hidden  lg:hidden'>
             <Image
-                src={'/../assets/images/logo.png'}
+                src={'/../../assets/images/logo.png'}
                 alt='bg'
                 priority
                 width={300}
