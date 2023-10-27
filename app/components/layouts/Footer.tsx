@@ -6,7 +6,7 @@ const Footer = ({home,about,works,contact, scrollToComponent = ()=>{}}:any) => {
     <div data-aos="fade-up" className='w-full flex justify-center items-center flex-col gap-3 py-14 mt-16 '>
         <div className='w-[80px] h-[80px]  overflow-hidden -mb-6'>
             <Image
-                src={'/../../assets/images/logo.png'}
+                src={'/assets/images/logo.png'}
                 alt='bg'
                 priority
                 width={300}

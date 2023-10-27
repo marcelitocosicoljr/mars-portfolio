@@ -23,7 +23,7 @@ const Masthead = () => {
         </div>
         <div data-aos="fade-left" className='lg:w-1/2 h-full overflow-hidden '>
             <Image
-                src={'/../../assets/images/marsbg.png'}
+                src={'/assets/images/marsbg.png'}
                 alt='bg'
                 priority
                 width={950}
