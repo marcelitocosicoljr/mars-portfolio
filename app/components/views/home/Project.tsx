@@ -17,12 +17,12 @@ const Project = ({image, title, tasks, link}:any) => {
                 className=' w-full h-full object-contain'
             />
         </div>
-        <span className=' flex w-full  lg:w-[25%] flex-col items-center lg:items-start justify-center md:justify-start'>
-                <h3 className='text-theme-blue font-bold text-[25px]'>{title}</h3>
+        <span className=' flex w-full  lg:w-[25%] flex-col  items-center lg:items-start justify-center md:justify-start'>
+                <h3 className='text-theme-blue font-bold text-[25px] '>{title}</h3>
                 {
                     tasks &&
                     tasks?.map((item:any, index:number)=>(
-                        <h3 key={index} className='text-theme-gray text-[18px]'>{item}</h3>
+                        <h3 key={index} className='text-theme-gray text-[18px]  text-center lg:text-left'>{item}</h3>
                     ))
                 }
                 {

@@ -10,6 +10,8 @@ const Projects = () => {
         <Project image='/assets/images/projects/farmkonekt.png' title='Farm Konekt' tasks={["Designed UI/UX", "Developed Web App"]} />
         <Project image='/assets/images/projects/fksite.png' title='Farm Konekt Website' tasks={["UI/UX Lead", "Maintained Web App"]} link='https://farmkonek.com/' />
 
+        <Project image='/assets/images/projects/studportal.png' title='Student Portal' tasks={["Designed UI/UX", "Developed Web App"]} />
+
         <Project image='/assets/images/projects/istopp.png' title='ISTOPP Web App' tasks={["(Information System on Transport Operations in Puerto Princesa)", "Developed Web App","Integrate Data"]} />
 
         <Project image='/assets/images/projects/grate.png' title='Grate New Castle' tasks={["Developed Web App", "Maintained Web App"]} link='https://gratenewcastle.co.uk/' />
