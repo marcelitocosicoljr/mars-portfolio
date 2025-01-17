@@ -7,7 +7,7 @@ import Button from '../../uis/buttons/Button';
 const SmallProject = ({image, title, tasks, link}:any) => {
   return (
     <div className='lg:w-[40%] mx-auto py-5 px-2 lg:px-0 flex justify-center gap-4 items-center flex-col lg:flex-row '>
-        <div data-aos="fade-up" className='w-full mx-auto lg:w-[60%]  h-full overflow-hidden  rounded-md shadow-xl  '>
+        <div className='w-full mx-auto lg:w-[60%]  h-full overflow-hidden  rounded-md shadow-xl  '>
             <Image
                 src={image}
                 alt='bg'
