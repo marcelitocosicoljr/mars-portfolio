@@ -4,7 +4,7 @@ import Button from "../../uis/buttons/Button";
 
 const Masthead = () => {
   return (
-    <div className="relative w-full bg-theme-orangeBackground flex  flex-col lg:flex-row items-center  xl:h-[100vh] pb-16 xl:pb-0 px-6 xl:px-24 pt-20">
+    <div className="relative w-full bg-theme-orangeBackground flex  flex-col lg:flex-row items-center  xl:h-[100vh]  xl:pb-0 px-6 xl:px-24 pt-20">
       <div
         data-aos="fade-right"
         className="w-full lg:w-1/2 flex flex-col lg:pr-20 xl:-mt-24"
@@ -41,14 +41,14 @@ const Masthead = () => {
           />
         </span>
       </div>
-      <div data-aos="fade-left" className="lg:w-1/2 h-full overflow-hidden ">
+      <div data-aos="fade-left" className="lg:w-1/2 h-full overflow-hidden">
         <Image
           src={"/assets/images/mars1.png"}
           alt="bg"
           priority
           width={950}
           height={950}
-          className="contain w-full h-full object-contain lg:scale-[110%] xl:-ml-6"
+          className="w-full h-full object-cover scale-[125%] xl:-ml-10"
         />
       </div>
     </div>
