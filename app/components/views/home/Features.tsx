@@ -7,7 +7,7 @@ const Features = ({ ref }: any) => {
     <div
       data-aos="fade-up"
       ref={ref}
-      className="w-[95%] lg:w-[70%] mx-auto shadow-lg py-10 md:py-5 flex flex-col sm:flex-row justify-center gap-6 md:gap-16 items-center -mt-[85px] z-10 bg-white bg-opacity-[70%] mb-20 rounded-xl mdrounded-md "
+      className="w-[95%] lg:w-[70%] mx-auto shadow-lg py-10 md:py-5 flex flex-col sm:flex-row justify-center gap-6 md:gap-16 items-center -mt-[70px] z-10 bg-white  mb-20 rounded-xl mdrounded-md "
     >
       <div className="flex gap-2 lg:gap-6  items-center flex-col md:flex-row">
         <div className="bg-[#F4F4F4] w-[70px] h-[70px] lg:w-[130px] lg:h-[130px] rounded-full flex justify-center items-center ">
