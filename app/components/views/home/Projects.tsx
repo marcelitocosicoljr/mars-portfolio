@@ -8,6 +8,21 @@ const Projects = () => {
   return (
     <div className="w-full flex flex-wrap gap-2 items-centerjustify-center">
       <Project
+        image="/assets/images/projects/18.png"
+        title="College Aid Plan"
+        tasks={["Designed UI/UX", "Developed Web App"]}
+      />
+      <Project
+        image="/assets/images/projects/19.png"
+        title="College Aid Plan"
+        tasks={["Designed UI/UX", "Developed Web App"]}
+      />
+      <Project
+        image="/assets/images/projects/20.png"
+        title="College Aid Plan"
+        tasks={["Designed UI/UX", "Developed Web App"]}
+      />
+      <Project
         image="/assets/images/projects/16.png"
         title="Access Benefit Sharing (ABSCH)"
         tasks={["Designed UI/UX", "Developed Web App"]}
