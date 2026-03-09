@@ -1,152 +1,188 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Download, Linkedin, Facebook } from "lucide-react";
+import { Mail, Download, Linkedin, Facebook, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 
-/**
- * HR‑focused Masthead/Hero
- * - Dark, high‑contrast layout inspired by the reference
- * - Clear name + title hierarchy
- * - Short, skimmable pitch for recruiters (2–3 lines)
- * - Primary CTA: View CV. Secondary: Email Me
- * - Quick facts chips (Years, Core Skills, Location)
- * - Social icons
- * - Decorative radial/gradients that stay performant
- */
 export default function Masthead() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#0E0F14] text-white">
-      {/* Decorative gradients */}
-      <div className="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,87,34,0.25),transparent_70%)] blur-2xl" />
-      <div className="pointer-events-none absolute -right-40 top-1/3 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(77,208,225,0.22),transparent_70%)] blur-2xl" />
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#0B0D10] text-white flex items-center">
+      {/* Background decorative elements */}
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+        <div className="absolute -left-32 top-0 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(252,110,10,0.18),transparent_65%)]" />
+        <div className="absolute -right-32 bottom-0 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(77,208,225,0.1),transparent_65%)]" />
+      </div>
 
-      <div className="relative mx-auto flex max-w-7xl flex-col-reverse items-center gap-10 px-6 py-16 md:flex-row md:gap-12 lg:px-12 lg:py-24 xl:py-28">
-        {/* Left: Copy */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex flex-col-reverse md:flex-row items-center gap-12 px-6 pt-28 pb-20 lg:px-12 xl:pt-36 xl:pb-28">
+        {/* ── Left copy ── */}
         <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-full md:w-1/2"
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65 }}
+          className="w-full md:w-1/2 flex flex-col"
         >
-          <p className="mb-3 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70 backdrop-blur">
-            Open to Full‑time / Contract
-          </p>
+          <span className="section-label mb-4">Senior Software Engineer</span>
 
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            Hi, I’m{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A3E] to-[#FFD08A]">
-              Marcelito Cosicol
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
+            Hi, I&apos;m{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#FC6E0A] to-[#FFD08A]">
+                Mars
+              </span>
+              <span className="absolute bottom-1 left-0 w-full h-[6px] rounded bg-[#FC6E0A]/20 -z-0" />
             </span>
           </h1>
 
-          <p className="mt-3 text-lg font-medium text-white/90 sm:text-xl">
-            Software Engineer • UI/UX‑minded Frontend • ETL/Backend
+          <p className="mt-4 text-lg font-semibold text-white/75 tracking-wide">
+            Full‑Stack Engineer &nbsp;&middot;&nbsp; Frontend Specialist
+            &nbsp;&middot;&nbsp; ETL / Data Ops
           </p>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70">
-            I design and build reliable, user‑centric web apps end‑to‑end:
-            modern React/Next.js frontends, clean APIs, and efficient data
-            pipelines. 5+ years shipping features, improving UX, and optimizing
-            performance.
+          <p className="mt-5 text-[15px] leading-7 text-white/55 max-w-[520px]">
+            I design and build reliable, performant web applications — modern
+            React/Next.js frontends, clean .NET &amp; Node.js APIs, and
+            efficient ETL data pipelines.{" "}
+            <strong className="text-white/70">5+ years</strong> delivering
+            features for{" "}
+            <strong className="text-theme-orange">
+              local &amp; international clients
+            </strong>{" "}
+            across
+            the&nbsp;🇵🇭&nbsp;Philippines,&nbsp;🇬🇧&nbsp;UK,&nbsp;🇺🇸&nbsp;US, and
+            beyond.
           </p>
 
-          {/* Quick chips */}
-          <ul className="mt-6 flex flex-wrap gap-3">
+          {/* Stat chips */}
+          <ul className="mt-7 flex flex-wrap gap-3">
             {[
-              "5+ yrs experience",
-              "Next.js • TypeScript • Tailwind",
-              ".NET • Prisma • MySQL • MongoDB",
-              "ETL • NiFi • Data Ops",
-              "Puerto Princesa, PH",
-            ].map((t) => (
+              { val: "5+", label: "Years Exp." },
+              { val: "30+", label: "Projects" },
+              { val: "100k+", label: "Users" },
+              { val: "10x", label: "ETL Wins" },
+            ].map(({ val, label }) => (
               <li
-                key={t}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75"
+                key={val}
+                className="flex flex-col items-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 backdrop-blur"
               >
-                {t}
+                <span className="text-[22px] font-extrabold text-theme-orange leading-none">
+                  {val}
+                </span>
+                <span className="text-[11px] text-white/50 tracking-wide uppercase mt-0.5">
+                  {label}
+                </span>
               </li>
             ))}
           </ul>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="/assets/files/Marcelito Cosicol Software Engineer CV.pdf"
-              className="group inline-flex items-center gap-2 rounded-2xl bg-[#FF7A3E] px-5 py-3 text-sm font-semibold text-[#0E0F14] shadow-[0_8px_30px_rgba(255,122,62,0.35)] transition hover:translate-y-[-1px] hover:shadow-[0_12px_40px_rgba(255,122,62,0.45)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF7A3E] focus:ring-offset-[#0E0F14]"
-              aria-label="View my CV PDF"
               target="_blank"
+              className="group inline-flex items-center gap-2 rounded-full bg-theme-orange px-7 py-3.5 text-[13px] font-bold uppercase tracking-widest text-white shadow-[0_8px_30px_rgba(252,110,10,0.4)] transition hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(252,110,10,0.55)]"
             >
-              <Download className="h-4 w-4 transition-transform group-hover:scale-110" />
-              View My CV
+              <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+              Download CV
             </a>
-
             <a
               href="mailto:mcosicoljr@gmail.com"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-[13px] font-bold uppercase tracking-widest text-white/80 backdrop-blur transition hover:bg-white/10 hover:text-white hover:border-white/30"
             >
-              <Mail className="h-4 w-4" /> Email Me
+              <Mail className="h-4 w-4" />
+              Email Me
             </a>
+          </div>
 
-            <div className="ml-2 flex items-center gap-3">
-              <a
-                href="https://www.facebook.com/mcosicoljr"
-                target="_blank"
-                aria-label="Facebook"
-                className="rounded-full border border-white/10 p-2 text-white/70 transition hover:text-white hover:bg-white/5"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/marcelito-cosicol-19288b22b/"
-                target="_blank"
-                aria-label="LinkedIn"
-                className="rounded-full border border-white/10 p-2 text-white/70 transition hover:text-white hover:bg-white/5"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
+          {/* Social row */}
+          <div className="mt-7 flex items-center gap-4">
+            <span className="text-[11px] uppercase tracking-widest text-white/30">
+              Follow
+            </span>
+            <div className="h-px w-8 bg-white/15" />
+            <a
+              href="https://www.facebook.com/mcosicoljr"
+              target="_blank"
+              aria-label="Facebook"
+              className="rounded-full border border-white/10 p-2.5 text-white/50 transition hover:text-theme-orange hover:border-theme-orange/40"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/marcelito-cosicol-19288b22b/"
+              target="_blank"
+              aria-label="LinkedIn"
+              className="rounded-full border border-white/10 p-2.5 text-white/50 transition hover:text-theme-orange hover:border-theme-orange/40"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
           </div>
         </motion.div>
 
-        {/* Right: Portrait */}
+        {/* ── Right portrait ── */}
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative w-full md:w-1/2"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="relative w-full md:w-1/2 flex justify-center"
         >
-          <div className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/10 to-white/0 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(255,255,255,0.08),transparent_60%)]" />
-            <Image
-              src="/assets/images/mars2.png"
-              alt="Marcelito Cosicol portrait"
-              width={900}
-              height={1125}
-              priority
-              className="h-full w-full scale-[105%] bg-gray-300  object-contain object-bottom  pb-10"
-            />
-          </div>
+          <div className="absolute inset-0 rounded-[2.5rem] bg-[radial-gradient(ellipse_at_center,rgba(252,110,10,0.18),transparent_70%)] blur-2xl" />
 
-          {/* Stats card */}
-          <div className="absolute -bottom-6 left-1/2 w-[88%] -translate-x-1/2 rounded-2xl border border-white/10 bg-[#14161D]/80 p-4 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.4)] md:w-[85%]">
-            <div className="grid grid-cols-3 divide-x divide-white/10 text-center text-xs text-white/80">
-              <div className="px-2">
-                <div className="text-2xl font-extrabold text-white">30+</div>
-                Projects
-              </div>
-              <div className="px-2">
-                <div className="text-2xl font-extrabold text-white">10x</div>
-                Faster ETL Wins
-              </div>
-              <div className="px-2">
-                <div className="text-2xl font-extrabold text-white">100k+</div>
-                Users Served
+          <div className="relative w-full max-w-sm md:max-w-md">
+            <div className="absolute -top-3 -left-3 w-16 h-16 rounded-2xl border-2 border-theme-orange/40" />
+            <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-2xl border-2 border-theme-orange/20" />
+
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+              <Image
+                src="/assets/images/mars2.png"
+                alt="Marcelito Cosicol"
+                width={900}
+                height={1125}
+                priority
+                className="h-full w-full object-contain object-bottom scale-[103%] bg-[#14161D]"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-[#0B0D10] to-transparent" />
+            </div>
+
+            {/* Floating status badge */}
+            <div className="absolute -right-4 top-8 rounded-2xl border border-white/10 bg-[#12151C]/90 backdrop-blur px-4 py-3 shadow-xl">
+              <p className="text-[10px] uppercase tracking-widest text-white/40">
+                Status
+              </p>
+              <p className="text-[13px] font-bold text-white flex items-center gap-1.5 mt-0.5">
+                <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                Open to Work
+              </p>
+            </div>
+
+            {/* Floating tech badge */}
+            <div className="absolute -left-4 bottom-12 rounded-2xl border border-white/10 bg-[#12151C]/90 backdrop-blur px-4 py-3 shadow-xl">
+              <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1.5">
+                Experience
+              </p>
+              <div className="flex flex-col gap-1">
+                <p className="text-[11px] font-semibold text-white/70">
+                  🌍 Local &amp; International
+                </p>
+                <p className="text-[11px] text-white/40">🇵🇭 🇬🇧 🇺🇸 🇨🇦 🇦🇺</p>
               </div>
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce">
+        <ArrowRight className="h-4 w-4 rotate-90" />
+        <span className="text-[10px] uppercase tracking-widest">Scroll</span>
       </div>
     </section>
   );
