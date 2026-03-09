@@ -2,7 +2,7 @@ import React from 'react'
 
 const Heading = ({ title, subTitle }: any) => {
   return (
-    <div className="flex flex-col items-center justify-center mb-10">
+    <div data-aos="fade-up" className="flex flex-col items-center justify-center mb-10">
       <span className="section-label mb-1">{title}</span>
       <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
         {subTitle}

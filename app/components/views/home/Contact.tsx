@@ -39,12 +39,14 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         {/* Contact cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-          {contactItems.map((item) => (
+          {contactItems.map((item, i) => (
             <a
               key={item.label}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
               className="group rounded-2xl border border-white/8 bg-[#1A1D26] p-7 flex flex-col gap-4 transition-all duration-300 hover:border-theme-orange/40 hover:shadow-[0_8px_40px_rgba(252,110,10,0.12)] hover:-translate-y-1"
             >
               <div className="w-12 h-12 rounded-xl bg-theme-orange/10 border border-theme-orange/20 flex items-center justify-center transition group-hover:bg-theme-orange/20">
@@ -64,7 +66,7 @@ const Contact = () => {
         </div>
 
         {/* CTA band */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-theme-orange to-[#FF884D] p-10 md:p-14 text-center shadow-[0_20px_60px_rgba(252,110,10,0.3)]">
+        <div data-aos="zoom-in-up" className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-theme-orange to-[#FF884D] p-10 md:p-14 text-center shadow-[0_20px_60px_rgba(252,110,10,0.3)]">
           <div
             className="pointer-events-none absolute inset-0 opacity-10"
             style={{

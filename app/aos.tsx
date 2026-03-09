@@ -7,8 +7,11 @@ import "aos/dist/aos.css";
 export const AOSInit = () => {
   useEffect(() => {
     AOS.init({
-      easing: 'ease-out-quad',
-      duration: 500,
+      easing: 'ease-out-cubic',
+      duration: 700,
+      once: true,
+      offset: 80,
+      delay: 0,
     });
   }, [])
 
