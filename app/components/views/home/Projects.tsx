@@ -9,7 +9,7 @@ const Projects = () => {
     <div className="w-full bg-[#0B0D10]">
       {/* ── Web Applications ── */}
       <section className="max-w-7xl mx-auto px-6 xl:px-12 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <Project
             image="/assets/images/projects/18.png"
             title="College Aid Plan"
@@ -155,7 +155,7 @@ const Projects = () => {
           title="Mobile Applications"
           subTitle="Developed for Prototypes"
         />
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div data-aos="fade-up" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           <MobileProject
             image="/assets/images/projects/app1.jpg"
             title="Need4Sped App"

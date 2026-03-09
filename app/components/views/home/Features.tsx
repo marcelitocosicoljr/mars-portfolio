@@ -113,7 +113,7 @@ const Features = () => {
     <section className="relative bg-[#12151C] border-y border-white/5 py-20 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* ── Services ── */}
-        <div className="text-center mb-14">
+        <div data-aos="fade-up" className="text-center mb-14">
           <span className="section-label mb-1">What I Do</span>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-2">
             SERVICES &amp; EXPERTISE
@@ -122,9 +122,11 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {services.map((f) => (
+          {services.map((f, i) => (
             <div
               key={f.title}
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
               className="group relative rounded-2xl border border-white/8 bg-[#1A1D26] p-7 transition-all duration-300 hover:border-theme-orange/40 hover:shadow-[0_8px_40px_rgba(252,110,10,0.12)] hover:-translate-y-1"
             >
               <div className="mb-5 inline-flex items-center justify-center w-14 h-14 rounded-xl bg-theme-orange/10 border border-theme-orange/20 transition group-hover:bg-theme-orange/20">
@@ -142,7 +144,7 @@ const Features = () => {
         </div>
 
         {/* ── International Experience Banner ── */}
-        <div className="relative overflow-hidden rounded-2xl border border-theme-orange/25 bg-gradient-to-r from-theme-orange/10 via-[#1A1D26] to-theme-orange/5 px-8 py-7 mb-20 flex flex-col sm:flex-row items-center gap-6">
+        <div data-aos="fade-up" className="relative overflow-hidden rounded-2xl border border-theme-orange/25 bg-gradient-to-r from-theme-orange/10 via-[#1A1D26] to-theme-orange/5 px-8 py-7 mb-20 flex flex-col sm:flex-row items-center gap-6">
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.04]"
             style={{
@@ -185,7 +187,7 @@ const Features = () => {
 
         {/* ── Full Tech Stack ── */}
         <div>
-          <div className="text-center mb-10">
+          <div data-aos="fade-up" className="text-center mb-10">
             <span className="section-label mb-1">Tech Stack</span>
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-2">
               TOOLS &amp; TECHNOLOGIES
@@ -194,9 +196,11 @@ const Features = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {stackGroups.map((group) => (
+            {stackGroups.map((group, i) => (
               <div
                 key={group.label}
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
                 className="rounded-2xl border border-white/8 bg-[#1A1D26] p-6"
               >
                 <div className="flex items-center gap-3 mb-4">

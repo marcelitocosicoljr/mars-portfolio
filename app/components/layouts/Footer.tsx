@@ -11,7 +11,7 @@ const Footer = ({
   return (
     <footer className="bg-[#0B0D10] border-t border-white/5">
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 xl:px-12 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div data-aos="fade-up" className="max-w-7xl mx-auto px-6 xl:px-12 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand col */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-0.5">
