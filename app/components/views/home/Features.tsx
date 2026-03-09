@@ -144,7 +144,10 @@ const Features = () => {
         </div>
 
         {/* ── International Experience Banner ── */}
-        <div data-aos="fade-up" className="relative overflow-hidden rounded-2xl border border-theme-orange/25 bg-gradient-to-r from-theme-orange/10 via-[#1A1D26] to-theme-orange/5 px-8 py-7 mb-20 flex flex-col sm:flex-row items-center gap-6">
+        <div
+          data-aos="fade-up"
+          className="relative overflow-hidden rounded-2xl border border-theme-orange/25 bg-gradient-to-r from-theme-orange/10 via-[#1A1D26] to-theme-orange/5 px-8 py-7 mb-20 flex flex-col sm:flex-row items-center gap-6"
+        >
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.04]"
             style={{

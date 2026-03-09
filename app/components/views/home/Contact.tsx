@@ -66,7 +66,10 @@ const Contact = () => {
         </div>
 
         {/* CTA band */}
-        <div data-aos="zoom-in-up" className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-theme-orange to-[#FF884D] p-10 md:p-14 text-center shadow-[0_20px_60px_rgba(252,110,10,0.3)]">
+        <div
+          data-aos="zoom-in-up"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-theme-orange to-[#FF884D] p-10 md:p-14 text-center shadow-[0_20px_60px_rgba(252,110,10,0.3)]"
+        >
           <div
             className="pointer-events-none absolute inset-0 opacity-10"
             style={{
