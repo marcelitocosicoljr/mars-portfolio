@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #0b0d10;
-  --bg-dark-alt: #12151c;
-  --accent: #fc6e0a;
-  --text-muted: #94979f;
+  --navy: #101d5a;
+  --navy-deep: #0b1541;
+  --mist: #eef1f8;
+  --ink: #141a36;
 }
 
 html {
@@ -14,35 +14,76 @@ html {
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: var(--ink);
 }
 
-/* Smooth scroll offset for fixed nav */
-[id] {
-  scroll-margin-top: 80px;
+/* Offset anchored sections for the fixed nav */
+section[id] {
+  scroll-margin-top: 72px;
 }
 
-/* Custom scrollbar */
+::selection {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #12151c;
+  background: var(--mist);
 }
 ::-webkit-scrollbar-thumb {
-  background: #fc6e0a;
-  border-radius: 3px;
+  background: var(--navy);
+  border-radius: 4px;
 }
 
-/* Section divider utility */
-.section-label {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #fc6e0a;
-  margin-bottom: 0.5rem;
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 xl:px-10;
+  }
+
+  /* Letter-spaced eyebrow, echoing the résumé subtitle style */
+  .eyebrow {
+    @apply font-display text-[11px] font-bold uppercase tracking-[0.32em] text-navy-600;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-7 py-3.5 font-display text-[12px] font-bold uppercase tracking-[0.18em] text-white shadow-navy transition duration-300 hover:-translate-y-0.5 hover:bg-navy-700;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-800 px-7 py-3 font-display text-[12px] font-bold uppercase tracking-[0.18em] text-navy-800 transition duration-300 hover:-translate-y-0.5 hover:bg-navy-800 hover:text-white;
+  }
+
+  .card {
+    @apply rounded-2xl border border-mist-200 bg-white shadow-card;
+  }
+}
+
+/* Subtle dotted texture for mist panels */
+.bg-dots {
+  background-image: radial-gradient(rgba(16, 29, 90, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.bg-grid-light {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

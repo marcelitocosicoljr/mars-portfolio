@@ -8,29 +8,60 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
-        theme: {
-          orange: "#FC6E0A",
-          orangeLight: "#FF884D",
-          dark: "#0B0D10",
-          darkAlt: "#12151C",
-          card: "#1A1D26",
-          border: "rgba(255,255,255,0.08)",
-          white: "#FFFFFF",
-          muted: "#94979F",
-          // legacy aliases kept for compatibility
-          blue: "#15295F",
-          gray: "#94979F",
-          orangeBackground: "#FEF5EE",
+        // Navy / white / mist palette
+        navy: {
+          950: "#070E30",
+          900: "#0B1541",
+          800: "#101D5A",
+          700: "#1A2A78",
+          600: "#26399A",
+          500: "#3A50B8",
+          400: "#6477D0",
+        },
+        mist: {
+          50: "#F7F8FC",
+          100: "#EEF1F8",
+          200: "#E2E7F2",
+          300: "#CDD5E6",
+        },
+        ink: "#141A36",
+        slate: {
+          DEFAULT: "#4D5675",
+          light: "#7A83A1",
         },
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
+        display: ["var(--font-poppins)", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        card: "0 1px 2px rgba(16,29,90,0.04), 0 8px 24px -12px rgba(16,29,90,0.12)",
+        lift: "0 2px 4px rgba(16,29,90,0.04), 0 24px 48px -16px rgba(16,29,90,0.28)",
+        navy: "0 12px 32px -8px rgba(16,29,90,0.45)",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        spinSlow: {
+          to: { transform: "rotate(360deg)" },
+        },
+        floaty: {
+          "0%,100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        blink: {
+          "0%,100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        marquee: "marquee 40s linear infinite",
+        "spin-slow": "spinSlow 28s linear infinite",
+        floaty: "floaty 5s ease-in-out infinite",
+        blink: "blink 1s step-end infinite",
       },
     },
   },

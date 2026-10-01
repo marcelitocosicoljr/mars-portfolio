@@ -1,65 +1,30 @@
 "use client";
 import TopBar from "./components/layouts/TopBar";
+import Footer from "./components/layouts/Footer";
 import Masthead from "./components/views/home/Masthead";
+import Marquee from "./components/views/home/Marquee";
+import About from "./components/views/home/About";
 import Features from "./components/views/home/Features";
-import Heading from "./components/uis/titles/Heading";
+import Experience from "./components/views/home/Experience";
+import Skills from "./components/views/home/Skills";
 import Projects from "./components/views/home/Projects";
 import Contact from "./components/views/home/Contact";
-import Footer from "./components/layouts/Footer";
-import { useRef } from "react";
+import BackToTop from "./components/uis/BackToTop";
 
 export default function Home() {
-  const home = useRef(null);
-  const works = useRef(null);
-  const contact = useRef(null);
-
-  const scrollToComponent = (ref: any) => {
-    if (ref.current) {
-      const scrollPosition =
-        ref.current.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
-    }
-  };
-
   return (
-    <main className="flex min-h-screen flex-col bg-[#0B0D10]">
-      <TopBar
-        home={home}
-        works={works}
-        contact={contact}
-        scrollToComponent={scrollToComponent}
-      />
-
-      {/* Hero */}
-      <div ref={home}>
-        <Masthead />
-      </div>
-
-      {/* Services & Skills */}
+    <main className="flex min-h-screen flex-col overflow-x-clip bg-white">
+      <TopBar />
+      <Masthead />
+      <Marquee />
+      <About />
       <Features />
-
-      {/* Portfolio */}
-      <section ref={works} className="bg-[#0B0D10] pt-24 pb-8">
-        <div className="max-w-7xl mx-auto px-6 xl:px-12">
-          <Heading title="My Portfolio" subTitle="Projects Worked On" />
-        </div>
-        <Projects />
-      </section>
-
-      {/* Contact */}
-      <section ref={contact} className="bg-[#0B0D10] pt-24">
-        <div className="max-w-7xl mx-auto px-6 xl:px-12 mb-12">
-          <Heading title="Let's Connect" subTitle="Contact Me" />
-        </div>
-        <Contact />
-      </section>
-
-      <Footer
-        home={home}
-        works={works}
-        contact={contact}
-        scrollToComponent={scrollToComponent}
-      />
+      <Experience />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
+      <BackToTop />
     </main>
   );
 }

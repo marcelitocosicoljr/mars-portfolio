@@ -1,77 +1,67 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import { Icon } from "@iconify/react";
+import { navLinks, scrollToId } from "./TopBar";
+import { CV_URL, contact } from "../../data/profile";
 
-const Footer = ({
-  home,
-  works,
-  contact,
-  scrollToComponent = () => {},
-}: any) => {
+const socials = [
+  { href: contact.linkedin, icon: "la:linkedin", label: "LinkedIn" },
+  { href: contact.facebook, icon: "fa-brands:facebook", label: "Facebook" },
+  { href: `mailto:${contact.email}`, icon: "ic:outline-email", label: "Email" },
+];
+
+const Footer = () => {
   return (
-    <footer className="bg-[#0B0D10] border-t border-white/5">
-      {/* Main footer */}
-      <div
-        data-aos="fade-up"
-        className="max-w-7xl mx-auto px-6 xl:px-12 py-16 grid grid-cols-1 md:grid-cols-3 gap-12"
-      >
-        {/* Brand col */}
+    <footer className="relative overflow-hidden bg-navy-950 text-white">
+      <div className="bg-grid-light pointer-events-none absolute inset-0 opacity-50" />
+      <div className="container-x relative grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+        {/* Brand */}
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-0.5">
-            <span className="text-theme-orange text-[22px] font-black tracking-tight">
-              MARS
-            </span>
-            <span className="text-white text-[22px] font-black tracking-tight">
-              DEV
-            </span>
+          {/* White tile keeps the logo's dark-blue wordmark legible on navy */}
+          <div className="self-start rounded-2xl bg-white px-4 py-3 shadow-[0_0_30px_rgba(58,80,184,0.35)]">
+            <Image
+              src="/assets/images/marstech-logo.png"
+              alt="Marcelito Tech logo"
+              width={804}
+              height={603}
+              className="h-20 w-auto"
+            />
           </div>
-          <p className="text-white/45 text-[13px] leading-6 max-w-xs">
-            Senior Software Engineer specializing in full-stack web development,
-            ETL data pipelines, and high-performance React/Next.js applications.
+          <p className="max-w-sm text-[13.5px] leading-6 text-white/55">
+            Senior Full-Stack Software Engineer specializing in full-stack web
+            development, ETL data pipelines, and high-performance React/Next.js
+            applications.
           </p>
-          <div className="flex items-center gap-3 mt-2">
-            <a
-              href="https://www.facebook.com/mcosicoljr"
-              target="_blank"
-              aria-label="Facebook"
-              className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-theme-orange hover:border-theme-orange/40 transition"
-            >
-              <Icon icon="fa-brands:facebook" width={16} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/marcelito-cosicol-19288b22b/"
-              target="_blank"
-              aria-label="LinkedIn"
-              className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-theme-orange hover:border-theme-orange/40 transition"
-            >
-              <Icon icon="la:linkedin" width={18} />
-            </a>
-            <a
-              href="mailto:mcosicoljr@gmail.com"
-              aria-label="Email"
-              className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-theme-orange hover:border-theme-orange/40 transition"
-            >
-              <Icon icon="ic:outline-email" width={16} />
-            </a>
+          <div className="mt-2 flex items-center gap-3">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white hover:text-navy-800"
+              >
+                <Icon icon={s.icon} width={18} />
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Quick links */}
         <div>
-          <p className="text-[11px] uppercase tracking-widest text-white/30 mb-5">
+          <p className="mb-5 font-display text-[11px] font-bold uppercase tracking-[0.28em] text-white/40">
             Quick Links
           </p>
-          <ul className="flex flex-col gap-3">
-            {[
-              { label: "Home", ref: home, tab: 1 },
-              { label: "Portfolio", ref: works, tab: 3 },
-              { label: "Contact", ref: contact, tab: 4 },
-            ].map(({ label, ref }) => (
-              <li key={label}>
+          <ul className="grid grid-cols-2 gap-3">
+            {navLinks.map(({ id, label }) => (
+              <li key={id}>
                 <button
-                  onClick={() => scrollToComponent(ref)}
-                  className="text-white/55 hover:text-theme-orange transition text-[14px] font-medium uppercase tracking-wider"
+                  onClick={() => scrollToId(id)}
+                  className="group flex items-center gap-2 text-[14px] font-medium text-white/65 transition hover:text-white"
                 >
+                  <span className="h-px w-3 bg-white/30 transition-all group-hover:w-5 group-hover:bg-white" />
                   {label}
                 </button>
               </li>
@@ -79,55 +69,53 @@ const Footer = ({
           </ul>
         </div>
 
-        {/* Contact info */}
+        {/* Contact */}
         <div>
-          <p className="text-[11px] uppercase tracking-widest text-white/30 mb-5">
+          <p className="mb-5 font-display text-[11px] font-bold uppercase tracking-[0.28em] text-white/40">
             Contact
           </p>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-3 text-[14px]">
             <li>
               <a
-                href="tel:+639397509659"
-                className="text-white/55 hover:text-theme-orange transition text-[14px]"
+                href={contact.phoneHref}
+                className="flex items-center gap-2.5 text-white/65 transition hover:text-white"
               >
-                (+63) 939 750 9659
+                <Icon icon="ph:phone-bold" /> {contact.phone}
               </a>
             </li>
             <li>
               <a
-                href="mailto:mcosicoljr@gmail.com"
-                className="text-white/55 hover:text-theme-orange transition text-[14px]"
+                href={`mailto:${contact.email}`}
+                className="flex items-center gap-2.5 text-white/65 transition hover:text-white"
               >
-                mcosicoljr@gmail.com
+                <Icon icon="ph:envelope-simple-bold" /> {contact.email}
               </a>
             </li>
-            <li>
-              <span className="text-white/35 text-[14px]">
-                Puerto Princesa, Palawan, PH
-              </span>
+            <li className="flex items-center gap-2.5 text-white/45">
+              <Icon icon="ph:map-pin-bold" /> Puerto Princesa, Palawan, PH
             </li>
             <li className="mt-2">
               <a
-                href="/assets/files/Marcelito Cosicol Software Engineer CV.pdf"
+                href={CV_URL}
                 target="_blank"
-                className="inline-flex items-center gap-2 rounded-full border border-theme-orange/40 px-5 py-2 text-[12px] font-bold uppercase tracking-widest text-theme-orange transition hover:bg-theme-orange hover:text-white"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-display text-[11px] font-bold uppercase tracking-[0.18em] text-navy-800 transition hover:-translate-y-0.5 hover:bg-mist-200"
               >
-                Download CV
+                <Icon icon="ph:download-simple-bold" /> Download CV
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/5 py-5 px-6 xl:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-white/25 text-[12px]">
+      <div className="relative border-t border-white/10 py-5">
+        <div className="container-x flex flex-col items-center justify-between gap-2 sm:flex-row">
+          <p className="text-[12px] text-white/40">
             © {new Date().getFullYear()} Marcelito Cosicol Jr. All rights
             reserved.
           </p>
-          <p className="text-white/20 text-[12px]">
-            Built with Next.js · Tailwind CSS
+          <p className="text-[12px] text-white/30">
+            Built with Next.js · Tailwind CSS · Framer Motion
           </p>
         </div>
       </div>
