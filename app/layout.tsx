@@ -10,9 +10,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Marcelito Cosicol — Senior Software Engineer",
+  title: "Marcelito Cosicol Jr. — Senior Full-Stack Software Engineer",
   description:
-    'Portfolio of Marcelito "Mars" Cosicol Jr., Senior Software Engineer specializing in React/Next.js, .NET, ETL data pipelines, and full-stack web development.',
+    'Portfolio of Marcelito "Mars" Cosicol Jr., Senior Full-Stack Software Engineer specializing in React/Next.js, .NET, ETL data pipelines, UI/UX, and full-stack web development.',
 };
 
 export default function RootLayout({
@@ -23,9 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <AOSInit />
-      <body
-        className={`${poppins.className} bg-[#0B0D10] text-white antialiased`}
-      >
+      <body className="bg-white font-sans text-ink antialiased">
         {children}
       </body>
     </html>

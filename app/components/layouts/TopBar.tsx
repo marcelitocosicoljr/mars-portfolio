@@ -1,176 +1,167 @@
 "use client";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { CV_URL } from "../../data/profile";
 
-const TopBar = ({
-  home,
-  works,
-  contact,
-  scrollToComponent = () => {},
-}: any) => {
+export const navLinks = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "portfolio", label: "Portfolio" },
+  { id: "contact", label: "Contact" },
+];
+
+export const scrollToId = (id: string) =>
+  document
+    .getElementById(id)
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+const TopBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [tab, setTab] = useState(1);
+  const [active, setActive] = useState("home");
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30 });
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinkClass = (t: number) =>
-    `text-[13px] font-semibold tracking-widest uppercase transition-colors duration-200 ${
-      tab === t ? "text-theme-orange" : "text-white/80 hover:text-theme-orange"
-    }`;
+  // Highlight the section currently in the middle of the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    navLinks.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const go = (id: string) => {
+    scrollToId(id);
+    setMenuOpen(false);
+  };
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
         scrolled || menuOpen
-          ? "bg-[#0B0D10] backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.6)]"
+          ? "border-b border-mist-200 bg-white/85 shadow-[0_8px_30px_-12px_rgba(16,29,90,0.2)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 xl:px-12">
+      <div
+        className={`container-x flex items-center justify-between transition-all duration-300 lg:py-3.5 ${
+          scrolled ? "py-2" : "py-3.5"
+        }`}
+      >
         {/* Logo */}
         <button
-          onClick={() => {
-            scrollToComponent(home);
-            setTab(1);
-          }}
-          className="flex items-center gap-0.5 focus:outline-none"
+          onClick={() => go("home")}
+          className="group flex items-center gap-2.5"
+          aria-label="Back to top"
         >
-          <span className="text-theme-orange text-[20px] font-black tracking-tight leading-none">
-            MARS
-          </span>
-          <span className="text-white text-[20px] font-black tracking-tight leading-none">
-            DEV
-          </span>
+          <Image
+            src="/assets/images/marstech-logo.png"
+            alt="Marcelito Tech logo"
+            width={804}
+            height={603}
+            priority
+            // Shrinks on mobile once the page scrolls; desktop keeps the full size
+            className={`w-auto drop-shadow-[0_4px_10px_rgba(16,29,90,0.3)] transition-all duration-300 group-hover:scale-105 lg:h-14 ${
+              scrolled ? "h-10" : "h-14"
+            }`}
+          />
         </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          <button
-            onClick={() => {
-              scrollToComponent(home);
-              setTab(1);
-            }}
-            className={navLinkClass(1)}
-          >
-            Home
-          </button>
-          <button
-            onClick={() => {
-              scrollToComponent(works);
-              setTab(3);
-            }}
-            className={navLinkClass(3)}
-          >
-            Portfolio
-          </button>
-          <button
-            onClick={() => {
-              scrollToComponent(contact);
-              setTab(4);
-            }}
-            className={navLinkClass(4)}
-          >
-            Contact
-          </button>
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {navLinks.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => go(id)}
+              className={`relative rounded-full px-4 py-2 font-display text-[12px] font-bold uppercase tracking-[0.14em] transition-colors ${
+                active === id ? "text-white" : "text-slate hover:text-navy-800"
+              }`}
+            >
+              {active === id && (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 rounded-full bg-navy-800"
+                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                />
+              )}
+              <span className="relative">{label}</span>
+            </button>
+          ))}
         </nav>
 
-        {/* CTA + Socials */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="https://www.facebook.com/mcosicoljr"
-            target="_blank"
-            aria-label="Facebook"
-          >
-            <span className="text-white/60 hover:text-theme-orange transition-colors duration-200">
-              <Icon icon="fa-brands:facebook" width={18} />
-            </span>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/marcelito-cosicol-19288b22b/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <span className="text-white/60 hover:text-theme-orange transition-colors duration-200">
-              <Icon icon="la:linkedin" width={20} />
-            </span>
-          </Link>
-          <Link href="mailto:mcosicoljr@gmail.com" aria-label="Email">
-            <span className="text-white/60 hover:text-theme-orange transition-colors duration-200">
-              <Icon icon="ic:outline-email" width={20} />
-            </span>
-          </Link>
+        <div className="hidden items-center gap-3 lg:flex">
           <button
-            onClick={() => {
-              scrollToComponent(contact);
-              setTab(4);
-            }}
-            className="ml-2 px-5 py-2 bg-theme-orange text-white text-[12px] font-bold uppercase tracking-widest rounded-full transition hover:bg-theme-orangeLight hover:scale-[1.03] shadow-[0_4px_20px_rgba(252,110,10,0.35)]"
+            onClick={() => go("contact")}
+            className="btn-navy !px-5 !py-2.5"
           >
             Hire Me
           </button>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile toggle */}
         <button
-          className="md:hidden text-white/80 hover:text-theme-orange transition-colors"
+          className="rounded-full p-2 text-navy-800 transition hover:bg-mist-100 lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
-          <Icon icon={menuOpen ? "mdi:close" : "mdi:menu"} width={28} />
+          <Icon icon={menuOpen ? "mdi:close" : "mdi:menu"} width={26} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#0B0D10] border-t border-white/10 px-6 py-7 flex flex-col gap-6 shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
-          <button
-            onClick={() => {
-              scrollToComponent(home);
-              setTab(1);
-              setMenuOpen(false);
-            }}
-            className={navLinkClass(1)}
+      {/* Scroll progress */}
+      <motion.div
+        style={{ scaleX: progress }}
+        className="absolute bottom-0 left-0 h-[3px] w-full origin-left bg-gradient-to-r from-navy-800 via-navy-600 to-navy-400"
+      />
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden border-t border-mist-200 bg-white lg:hidden"
           >
-            Home
-          </button>
-          <button
-            onClick={() => {
-              scrollToComponent(works);
-              setTab(3);
-              setMenuOpen(false);
-            }}
-            className={navLinkClass(3)}
-          >
-            Portfolio
-          </button>
-          <button
-            onClick={() => {
-              scrollToComponent(contact);
-              setTab(4);
-              setMenuOpen(false);
-            }}
-            className={navLinkClass(4)}
-          >
-            Contact
-          </button>
-          <button
-            onClick={() => {
-              scrollToComponent(contact);
-              setTab(4);
-              setMenuOpen(false);
-            }}
-            className="self-center px-6 py-2 bg-theme-orange text-white text-[12px] font-bold uppercase tracking-widest rounded-full transition hover:bg-theme-orangeLight"
-          >
-            Hire Me
-          </button>
-        </div>
-      )}
+            <div className="container-x flex flex-col gap-1 py-4">
+              {navLinks.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => go(id)}
+                  className={`rounded-xl px-4 py-3 text-left font-display text-[13px] font-bold uppercase tracking-[0.14em] ${
+                    active === id
+                      ? "bg-navy-800 text-white"
+                      : "text-navy-800 hover:bg-mist-100"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+              <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="btn-ghost mt-3">
+                <Icon icon="ph:file-arrow-down-bold" width={16} /> Download CV
+              </a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
