@@ -45,7 +45,7 @@ const featured: FeaturedItem[] = [
     tasks: ["Full-Stack Development", "UI/UX Design", "REST API"],
     shots: shots(
       "CollegeLoanPro",
-      [17, 18, 19, 20, 21, 22],
+      [30, 31, 32, 18, 19, 20, 21, 22],
       [
         "collegeloanpro.com",
         "collegeloanpro.com",
